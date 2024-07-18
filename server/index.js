@@ -21,3 +21,8 @@ app.listen(PORT, ()=>{
 
 app.use('/api/user', userRoute)
 app.use("/api/residency", residencyRoute)
+app.use(cors({
+    origin: "*",
+    methods:['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders:['Content-Type', 'Authorization']
+}));
