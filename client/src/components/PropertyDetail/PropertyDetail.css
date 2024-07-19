@@ -1,0 +1,93 @@
+.property-detail-page{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.property-detail-container{
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.property-main-image{
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.property-main-image img{
+    width: 100%;
+    height: auto;
+    max-height: 800px;
+}
+
+.property-swiper{
+    margin-top: 2rem;
+}
+
+.swiper-batch{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.swiper-batch img{
+    width: 100%;
+    max-width: 24%;
+    border-radius: 8px;
+}
+
+.property-description, .property-overview, 
+ .property-amenities, 
+.property-map{
+margin-top: 2rem;
+}
+
+.property-description p{
+    font-size: 1rem;
+    color: #333;
+}
+
+.property-overview .overview-items{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.property-overview .overview-item{
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.property-overview .overview-item i{
+    margin-right: 0.5rem;
+}
+
+
+
+.property-amenities .amenities-items{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.property-amenities .amenities-item{
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.property-amenities .amenities-item i{
+    margin-right: rem;
+}
+
+.property-map iframe{
+    border-radius: 8px;
+    height: 500px;
+}
