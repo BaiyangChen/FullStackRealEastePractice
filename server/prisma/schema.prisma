@@ -1,0 +1,43 @@
+generator client{
+    provider = "prisma-client-js"
+}
+
+
+datasource db{
+    provider =  "mongodb"
+    url = env("DATABASE_URL")
+}
+
+model User{
+    id String @id @default(auto()) @map("_id") @db.ObjectId
+    name String?
+    email String @unique
+    image String?
+    bookedVisits Json[]
+    favResidenciesID String[] @db.ObjectId
+    ownedResidencies Residency[] @relation("Owner")
+
+    // 一个名为User的模型，这个模型会映射到MongoDB数据库的一个集合。这个模型包括了一个id字段，其类型为String，@id代表这是主键（key），其默认值由数据库自动生成，
+    // @map（“_id”）将其映射到MongoDB中的_idziduan ,@db.object将其类型定义为MongoDB的ObjectID
+}
+
+model Residency{
+    id String @id @default(auto()) @map("_id") @db.ObjectId
+    title String
+    description String
+    price Int
+    address String
+    city String
+    country String
+    image String
+    facilities Json
+    images Json
+    userEmail String
+    owner User @relation("Owner", fields:[userEmail], references: [email])
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    location String
+    amenities Json
+
+    @@unique(fields: [address, userEmail])
+}

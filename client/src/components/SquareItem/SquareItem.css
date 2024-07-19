@@ -1,0 +1,12 @@
+.rent-item{
+  cursor: 'pointer';
+  max-width: 40rem;
+}
+.dollar{
+  color: orange;
+}
+.price-line{
+  >p{
+    display: inline;
+  }
+}
