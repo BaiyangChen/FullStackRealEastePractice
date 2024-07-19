@@ -1,0 +1,24 @@
+.our-story-background{
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 2rem 0;
+}
+
+.our-story-container{
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 2rem;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.our-story-title{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.our-story-content{
+    font-size: 20px;
+    line-height: 1.6;
+}
