@@ -6,7 +6,6 @@ import { prisma } from "../config/prismaConfig.js";
 export const createResidency = asyncHandler(async(req,res)=>{
     const {title, description, price, address, country, city, facilities, image, userEmail,} = req.body.data;
 
-    console.log(req.body.data);
     try{
         const residency = await prisma.residency.create({
             data:{
@@ -33,6 +32,12 @@ export const getAllResidencies = asyncHandler(async(req,res)=>{
 
 //function to ge a specific document/residency
 export const getResidency = asyncHandler(async(req,res)=>{
+    //禁用缓存
+    res.setHeader('Cache-Control','no-store, no-cache, must-revalidate, proxy-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires',0);
+    res.setHeader('Surrogate-Control', 'no-store');
+
     const {id}=req.params;
 
     try{
@@ -41,6 +46,8 @@ export const getResidency = asyncHandler(async(req,res)=>{
         });
         res.send(residency);
     }catch(err){
-        throw new Error(err.message);
+        // throw new Error(err.message);
+        console.error("error fetching residency:", err);
+        res.status(500).json({error: 'Internal Server Error'})
     }
 });
